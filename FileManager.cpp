@@ -15,13 +15,13 @@ struct projectNameNumber
 projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic", 5}, { "week 4 Array operations", 5 }};
 
 
-int chooseTack(int maxTackNumber)
+static int chooseTack(int maxTackNumber)
 {
     int tackNumberToReturn;
     std::cout << "Input tne number of the necessary tack to execute it or \"0\" to finish work: ";
     std::cin >> tackNumberToReturn;
 
-    if (tackNumberToReturn >= 0 && tackNumberToReturn <= maxTackNumber)
+    if (tackNumberToReturn > 0 && tackNumberToReturn <= maxTackNumber)
     {
         return tackNumberToReturn;
     }
