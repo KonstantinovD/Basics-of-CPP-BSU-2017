@@ -77,7 +77,7 @@ void mainLoop()
         }
         case 2:{
 
-#ifdef INTEGER_ARIPHMETIC
+
             while (true)
             {
                 int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
@@ -85,18 +85,18 @@ void mainLoop()
 
                 switch (crucialValue)//Perform current tack
                 {
-                case 1: { integerArithmetic_1(FIN); break; }
-                case 2: { integerArithmetic_2(FIN); break; }
-                case 3: { integerArithmetic_3(FIN); break; }
-                case 4: { integerArithmetic_4(FIN); break; }
-                case 5: { integerArithmetic_5(FIN); break; }
+                case 1: { arrayOperationsWeek4_1(FIN); break; }
+                case 2: { arrayOperationsWeek4_2(FIN); break; }
+                case 3: { arrayOperationsWeek4_3(FIN); break; }
+                case 4: { arrayOperationsWeek4_4(FIN); break; }
+                case 5: { arrayOperationsWeek4_5(FIN); break; }
                 default: break;
                 }
 
                 FIN.close();
             }
             break;
-#endif
+
 
         }
         default: break;
