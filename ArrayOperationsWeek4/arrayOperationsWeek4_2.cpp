@@ -20,7 +20,7 @@ static void sortArr(std::vector<int>& arr)
 
 void arrayOperationsWeek4_2(std::ifstream& FIN)
 {
-    FIN.open("arrayOperationsWeek4_2.txt");
+    FIN.open("resources/arrayOperationsWeek4_2.txt");
     int numberOfTests;
     FIN >> numberOfTests;
 

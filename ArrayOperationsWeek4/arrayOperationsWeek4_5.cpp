@@ -17,7 +17,7 @@ static int greatestComDiv(int first, int second)
 
 void arrayOperationsWeek4_5(std::ifstream& FIN)
 {
-    FIN.open("arrayOperationsWeek4_5.txt");
+    FIN.open("resources/arrayOperationsWeek4_5.txt");
     int numberOfTests;
     FIN >> numberOfTests;
 

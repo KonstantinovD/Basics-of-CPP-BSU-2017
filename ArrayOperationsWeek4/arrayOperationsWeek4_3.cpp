@@ -28,7 +28,7 @@ static void createRezultExpression(std::vector<int> & expr1, std::vector<int> & 
 
 void arrayOperationsWeek4_3(std::ifstream& FIN)
 {
-    FIN.open("arrayOperationsWeek4_3.txt");
+    FIN.open("resources/arrayOperationsWeek4_3.txt");
     int numberOfTests;
     FIN >> numberOfTests;
 

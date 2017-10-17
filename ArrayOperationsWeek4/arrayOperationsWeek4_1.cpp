@@ -60,7 +60,7 @@ bool ContainerForEvenNumbers::getOdd(int& result)
 
 void arrayOperationsWeek4_1(std::ifstream& FIN)
 {
-    FIN.open("arrayOperationsWeek4_1.txt");
+    FIN.open("resources/arrayOperationsWeek4_1.txt");
     int numberOfTests;
     FIN >> numberOfTests;
 

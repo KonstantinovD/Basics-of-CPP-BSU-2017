@@ -16,3 +16,17 @@ void arrayOperationsWeek4_2(std::ifstream& FIN);
 void arrayOperationsWeek4_3(std::ifstream& FIN);
 void arrayOperationsWeek4_4(std::ifstream& FIN);
 void arrayOperationsWeek4_5(std::ifstream& FIN);
+
+//Week 5
+void sortAndMatrixWeek5_1(std::ifstream& FIN);
+void sortAndMatrixWeek5_2(std::ifstream& FIN);
+void sortAndMatrixWeek5_3(std::ifstream& FIN);
+void sortAndMatrixWeek5_4(std::ifstream& FIN);
+void sortAndMatrixWeek5_5(std::ifstream& FIN);
+void sortAndMatrixWeek5_6(std::ifstream& FIN);
+
+//Week 6
+void pointersToFuncWeek6_1(std::ifstream& FIN);
+void pointersToFuncWeek6_2(std::ifstream& FIN);
+void pointersToFuncWeek6_3(std::ifstream& FIN);
+void pointersToFuncWeek6_4(std::ifstream& FIN);

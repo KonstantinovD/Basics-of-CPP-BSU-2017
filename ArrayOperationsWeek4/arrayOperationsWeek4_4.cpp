@@ -29,7 +29,7 @@ static void sortArr(std::vector<int>& arr, int l, int R, bool isIncrease)
 
 void arrayOperationsWeek4_4(std::ifstream& FIN)
 {
-    FIN.open("arrayOperationsWeek4_4.txt");
+    FIN.open("resources/arrayOperationsWeek4_4.txt");
     int numberOfTests;
     FIN >> numberOfTests;
 
