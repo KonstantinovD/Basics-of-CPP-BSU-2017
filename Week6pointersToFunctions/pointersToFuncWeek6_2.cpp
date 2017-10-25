@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 
+//Inserting row to matrix
 static int** insertRow(std::ifstream& FIN, int ** arr, int& sizeY, int sizeX)
 {
     int numberOfRow = 0;
@@ -34,6 +35,7 @@ static int** insertRow(std::ifstream& FIN, int ** arr, int& sizeY, int sizeX)
     return expandedArr;
 }
 
+//Deleting row from matrix
 static int** deleteRow(std::ifstream& FIN, int ** arr, int& sizeY)
 {
     int numberOfRow = 0;
@@ -98,7 +100,6 @@ void pointersToFuncWeek6_2(std::ifstream& FIN)
 
         int sumOfOperations;//all insertings or erasings of strings
         FIN >> sumOfOperations;
-        //int finalArrSize = sizeY; //number of strings will change, so we need to know it
 
         int isInsert = 0;
         for (int i = 0; i < sumOfOperations; i++)
@@ -107,10 +108,6 @@ void pointersToFuncWeek6_2(std::ifstream& FIN)
             if (isInsert >= 0) arr = insertRow(FIN, arr, sizeY, sizeX);
             else arr = deleteRow(FIN, arr, sizeY);
         }
-        
-        //std::cout << arr[0][2]<<std::endl;
-        //std::cout << arr[1][1] << std::endl;
-
         
         for (int k = 0; k < sizeY; k++){
             for (int t = 0; t < sizeX; t++)
