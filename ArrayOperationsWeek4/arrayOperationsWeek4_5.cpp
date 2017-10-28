@@ -13,12 +13,29 @@ static int greatestComDiv(int first, int second)
     if (second == 0) return first;
     return greatestComDiv(second, first % second);
 }
-
+//Check three things:
+//If all elements are unique, we can create arithmetic progression
+//If all elements are similar, this is correct
+//If no, but there are some similar elements, we can't create arithmetic progression
 static bool isContainsUniqueElements(std::vector<int> arr)
 {
     int i = 1;
     if (arr.empty()) return true;
     int uniqueElem = arr[0];
+
+    bool isAllSimilar = true;
+    for (int i = 1; i < arr.size(); i++)
+    {
+        if (arr[i] != uniqueElem){
+            isAllSimilar = false;
+            break;
+        }
+    }
+    if (true == isAllSimilar){
+        for (int i = 0; i < arr.size(); i++) std::cout << arr[i]<<" ";
+        std::cout << std::endl;
+        return false;
+    }
 
     while (i < arr.size())
     {
@@ -26,7 +43,10 @@ static bool isContainsUniqueElements(std::vector<int> arr)
             uniqueElem = arr[i];
             i++;
         }
-        else return false;
+        else {
+            std::cout << "incorrect input" << std::endl;
+            return false;
+        }
     }
     return true;
 }
@@ -50,7 +70,6 @@ void arrayOperationsWeek4_5(std::ifstream& FIN)
         if (sizeOfArray>2)  differenceOfProgression = greatestComDiv((arithmProgress[2] - arithmProgress[1]), (arithmProgress[1] - arithmProgress[0]));
 
         if (false == isContainsUniqueElements(arithmProgress)){
-            std::cout << "incorrect input"<<std::endl;
             continue;
         }
 
