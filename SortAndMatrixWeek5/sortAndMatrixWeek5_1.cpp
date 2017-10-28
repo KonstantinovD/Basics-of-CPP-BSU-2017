@@ -4,29 +4,38 @@
 #include <iostream>
 #include <vector>
 
-static void sortVector(std::vector<int>& arr) //Bubble sort with flag (memory if we had made at least 1 swap)
+static void sortVector(std::vector<int>& arr, int begin, int end) //Quick sort
 {
-    int i = 0;
-    bool isChangeExist = true;
+    int borderL = begin,
+        borderR = end;
 
-    while (isChangeExist)
+
+    int middleElem = arr[(begin + end) / 2];
+    int tempSwapElem;
+
+    while (borderL <= borderR)
     {
-        isChangeExist = false;
-        for (int j = 0; j < arr.size()-1-i; j++)
-        {
-            if (arr[j] > arr[j+1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                isChangeExist = true;
-            }
+        while (arr[borderL] < middleElem) borderL++;
+        while (arr[borderR] > middleElem) borderR--;
+
+        if (borderL <= borderR){
+            tempSwapElem = arr[borderL];
+            arr[borderL] = arr[borderR];
+            arr[borderR] = tempSwapElem;
+
+            borderL++;
+            borderR--;
         }
-        i++;
     }
+
+    if (begin < borderR) sortVector(arr, begin, borderR);
+    if (end > borderL) sortVector(arr, borderL, end);
+
 }
 
 void sortAndMatrixWeek5_1(std::ifstream& FIN)
 {
+
     FIN.open("resources/sortAndMatrixWeek5_1.txt");
     int numberOfTests;
     FIN >> numberOfTests;
@@ -41,7 +50,7 @@ void sortAndMatrixWeek5_1(std::ifstream& FIN)
 
         for (int i = 0; i < sizeOfArray; i++){ FIN >> arrayForSort[i]; }
 
-        sortVector(arrayForSort);
+        sortVector(arrayForSort, 0, arrayForSort.size()-1);
 
         for (int i = 0; i < sizeOfArray; i++) std::cout<< arrayForSort[i]<<" ";
         std::cout << std::endl;

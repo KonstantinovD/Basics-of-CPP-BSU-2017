@@ -4,13 +4,15 @@
 #include <fstream>
 #include <vector>
 
+class ValueState
+{
+public:
+    int value;
+    bool state;
+};
+
 class ContainerForEvenNumbers
 {
-    struct ValueState
-    {
-        int value;
-        bool state;
-    };
 
     std::vector<ValueState> evenOddHolder;
     //If true, it means that value is odd, because 1 is an odd number

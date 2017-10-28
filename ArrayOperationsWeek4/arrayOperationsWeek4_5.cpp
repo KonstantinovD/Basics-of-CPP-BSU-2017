@@ -6,7 +6,7 @@
 #include <algorithm>
 
 
-static bool myfunction(int i, int j) { return (i<j); }
+static bool myfunction(int i, int j) { return (i<j); }//to sort vector
 
 static int greatestComDiv(int first, int second)
 {
@@ -14,6 +14,22 @@ static int greatestComDiv(int first, int second)
     return greatestComDiv(second, first % second);
 }
 
+static bool isContainsUniqueElements(std::vector<int> arr)
+{
+    int i = 1;
+    if (arr.empty()) return true;
+    int uniqueElem = arr[0];
+
+    while (i < arr.size())
+    {
+        if (arr[i] != uniqueElem) {
+            uniqueElem = arr[i];
+            i++;
+        }
+        else return false;
+    }
+    return true;
+}
 
 void arrayOperationsWeek4_5(std::ifstream& FIN)
 {
@@ -32,6 +48,11 @@ void arrayOperationsWeek4_5(std::ifstream& FIN)
 
         int differenceOfProgression = 1;
         if (sizeOfArray>2)  differenceOfProgression = greatestComDiv((arithmProgress[2] - arithmProgress[1]), (arithmProgress[1] - arithmProgress[0]));
+
+        if (false == isContainsUniqueElements(arithmProgress)){
+            std::cout << "incorrect input"<<std::endl;
+            continue;
+        }
 
         for (int i = 0; i < sizeOfArray; i++)
         {
@@ -54,7 +75,7 @@ void arrayOperationsWeek4_5(std::ifstream& FIN)
             k++;
         }
 
-        std::cout << "Difference is " << differenceOfProgression << std::endl;
+        //std::cout << "Difference is " << differenceOfProgression << std::endl;
         for (int i = 0; i < arithmProgress.size(); i++) std::cout << arithmProgress[i] << " ";
         std::cout << std::endl;
     }

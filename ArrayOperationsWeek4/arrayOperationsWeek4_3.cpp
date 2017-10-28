@@ -7,7 +7,7 @@
 static void turnArray(std::vector<int> & arr)
 {
     int tempForSwap = 0;
-    for (int i = 0; i <= (arr.size() / 2 - 1); i++)//Go to the pre-midle element(if size%2 == 1) or to the left middle element(because if size%2 == 0 array hasn't middle element, but we can say about left-middle and right-middle)
+    for (int i = 0; i <= (arr.size() / 2); i++)//Go to the pre-midle element(if size%2 == 1) or to the left middle element(because if size%2 == 0 array hasn't middle element, but we can say about left-middle and right-middle)
     {
         tempForSwap = arr[i];
         arr[i] = arr[arr.size() - 1 - i];

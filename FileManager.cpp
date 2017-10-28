@@ -12,21 +12,26 @@ struct projectNameNumber
     char* name;
     int tacks;
 };
-const int NUMBER_OF_PROJECTS = 4;
-projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 4 tacks", 4 }};
+const int NUMBER_OF_PROJECTS = 5;
+projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 4 tacks", 4 }, {"week 7 Arithmetic expressions and stack: 3 tacks", 3}};
 
 
 static int chooseTack(int maxTackNumber)
 {
-    int tackNumberToReturn;
-    std::cout << "Input tne number of the necessary tack to execute it or \"0\" to finish work: ";
-    std::cin >> tackNumberToReturn;
-
-    if (tackNumberToReturn > 0 && tackNumberToReturn <= maxTackNumber)
+    int tackNumberToReturn = 0;
+   
+    while (true)
     {
-        return tackNumberToReturn;
+        std::cout << "Input tne number of the necessary tack to execute it or \"0\" to finish work: ";
+        std::cin >> tackNumberToReturn;
+
+        if (tackNumberToReturn > 0 && tackNumberToReturn <= maxTackNumber)
+        {
+            return tackNumberToReturn;
+        }
+        if(tackNumberToReturn == 0) return -1;
+        std::cout << "Such tack isn't exist" << std::endl;
     }
-    else return -1;
 }
 
 
@@ -139,6 +144,28 @@ void mainLoop()
                 case 2: { pointersToFuncWeek6_2(FIN); break; }
                 case 3: { pointersToFuncWeek6_3(FIN); break; }
                 case 4: { pointersToFuncWeek6_4(FIN); break; }
+                default: break;
+                }
+
+                FIN.close();
+            }
+            break;
+
+
+        }
+        case 5:{
+
+
+            while (true)
+            {
+                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                if (-1 == crucialValue) break;//incorrect input of the tack, ;
+
+                switch (crucialValue)//Perform current tack
+                {
+                case 1: { strOfExpressionsWeek7_1(FIN); break; }
+                //case 2: { strOfExpressionsWeek7_2(FIN); break; }
+                //case 3: { strOfExpressionsWeek7_3(FIN); break; }
                 default: break;
                 }
 

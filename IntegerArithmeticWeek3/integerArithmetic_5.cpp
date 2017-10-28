@@ -1,4 +1,5 @@
 #include "../include/TackInclude.h"
+#include "localHeaders/tack5functions.h"
 
 
 #include <iostream>
@@ -117,11 +118,11 @@ void integerArithmetic_5(std::ifstream& FIN)
             std::cout << "You are living for " << sumOfDaysOfLife << " days" << std::endl;
 
             std::cout << "tack 1: ";
-            integerArithmetic_1(FIN, sumOfDaysOfLife);
+            countDifferentNumbers(sumOfDaysOfLife);
             std::cout << "tack 2: ";
-            integerArithmetic_2(FIN, sumOfDaysOfLife);
+            findAntrophomorphNumbers(sumOfDaysOfLife);
             std::cout << "tack 4: ";
-            integerArithmetic_4(FIN, sumOfDaysOfLife);
+            findPerfectNumbers(sumOfDaysOfLife);
         }
         else
         {

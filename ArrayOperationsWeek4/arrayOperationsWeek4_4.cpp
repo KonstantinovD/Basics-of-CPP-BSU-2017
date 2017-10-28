@@ -4,25 +4,25 @@
 #include <fstream>
 #include <vector>
 
-static void sortArr(std::vector<int>& arr, int l, int R, bool isIncrease)
+static void sortArr(std::vector<int>& arr, int l, int R, bool isIncrease)//gnome sort
 {
     int tempVar = 0;
+    int j = 0;
     if (false == isIncrease){
         for (int i = l + 1; i <= R; i++){
-            for (int j = i; j > l && arr[j - 1] < arr[j]; j--){
-                tempVar = arr[j];
+            tempVar = arr[i];
+            for (j = i; j > l && arr[j - 1] < arr[j]; j--){
                 arr[j] = arr[j - 1];
-                arr[j - 1] = tempVar;
             }
+            arr[j] = tempVar;
         }
     }
     else{
         for (int i = l + 1; i <= R; i++){
-            for (int j = i; j > l && arr[j - 1] > arr[j]; j--){
-                tempVar = arr[j];
+            for (j = i; j > l && arr[j - 1] > arr[j]; j--){
                 arr[j] = arr[j - 1];
-                arr[j - 1] = tempVar;
             }
+            arr[j] = tempVar;
         }
     }
 }

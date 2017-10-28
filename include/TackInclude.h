@@ -4,11 +4,13 @@
 
 
 //Week 3
-void integerArithmetic_1(std::ifstream& FIN, int valueFor5Tack = -1);
-void integerArithmetic_2(std::ifstream& FIN, int valueFor5Tack = -1);
-void integerArithmetic_3(std::ifstream& FIN, int valueFor5Tack = -1);
-void integerArithmetic_4(std::ifstream& FIN, int valueFor5Tack = -1);
+void integerArithmetic_1(std::ifstream& FIN);
+void integerArithmetic_2(std::ifstream& FIN);
+void integerArithmetic_3(std::ifstream& FIN);
+void integerArithmetic_4(std::ifstream& FIN);
 void integerArithmetic_5(std::ifstream& FIN);
+
+
 
 //Week 4
 void arrayOperationsWeek4_1(std::ifstream& FIN);
@@ -30,3 +32,8 @@ void pointersToFuncWeek6_1(std::ifstream& FIN);
 void pointersToFuncWeek6_2(std::ifstream& FIN);
 void pointersToFuncWeek6_3(std::ifstream& FIN);
 void pointersToFuncWeek6_4(std::ifstream& FIN);
+
+//Week 7
+void strOfExpressionsWeek7_1(std::ifstream& FIN);
+void strOfExpressionsWeek7_2(std::ifstream& FIN);
+void strOfExpressionsWeek7_3(std::ifstream& FIN);
