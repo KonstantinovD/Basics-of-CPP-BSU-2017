@@ -32,6 +32,7 @@ void pointersToFuncWeek6_1(std::ifstream& FIN);
 void pointersToFuncWeek6_2(std::ifstream& FIN);
 void pointersToFuncWeek6_3(std::ifstream& FIN);
 void pointersToFuncWeek6_4(std::ifstream& FIN);
+void pointersToFuncWeek6_3string(std::ifstream& FIN);//The third tack which is made using std::string
 
 //Week 7
 void strOfExpressionsWeek7_1(std::ifstream& FIN);

@@ -1,10 +1,7 @@
-/*
 #include "../include/TackInclude.h"
 
 #include <fstream>
 #include <iostream>
-#include <vector>
-#include <math.h>
 #include <string>
 
 //If symbol is a numeral, or can be a part of number(like '-'), we return true
@@ -28,19 +25,19 @@ static int convertSymbolToNumeral(char symbol)
 }
 
 //Add current number to array
-static void fullArrWithInteger(std::string, , double* arrConstants, int& sizeArr)
+static void fullArrWithInteger(std::string& str, int beginIterator, int endIterator, double* arrConstants, int& sizeArr)
 {
-    if (1 == size && str[0] == '-') return; //number doesn't exist without numerals
-    int i = 0;
+    if (endIterator - beginIterator < 1 || endIterator - beginIterator == 1 && str[beginIterator] == '-') return; //number doesn't exist without numerals
+    int i = beginIterator;
     bool isNegative = false;
     double tempVar = 0.0;
 
     if (str[i] == '-'){
-        i = 1;
+        i++;
         isNegative = true;
     }
 
-    while (i < size)
+    while (i < endIterator + 1)
     {
         tempVar *= 10;
         tempVar += convertSymbolToNumeral(str[i]);
@@ -54,48 +51,49 @@ static void fullArrWithInteger(std::string, , double* arrConstants, int& sizeArr
 }
 
 //find numbers in string which consist of numerals and '-'
-static void turnStrToInteger(char* str, int size, double* arrConstants, int& sizeArr)
+static void turnStrToInteger(std::string& str, int beginIterator, int endIterator, double* arrConstants, int& sizeArr)
 {
-    if (1 == size && str[0] == '-') return; //number doesn't exist without numerals
+   // int size = endIterator - beginIterator;
+
+    if (endIterator - beginIterator < 1 || endIterator - beginIterator == 1 && str[beginIterator] == '-') return; //number doesn't exist without numerals
 
 
-    for (int i = 1; i < size; i++){
+    for (int i = beginIterator+1; i <= endIterator; i++){
         if (str[i] == '-'){
-            fullArrWithInteger(str, i, arrConstants, sizeArr);
-            turnStrToInteger(str + i, size - i, arrConstants, sizeArr);
+
+            fullArrWithInteger(str, beginIterator, i-1, arrConstants, sizeArr);
+            turnStrToInteger(str, i, endIterator, arrConstants, sizeArr);
             return;
         }
     }
 
-    fullArrWithInteger(str, size, arrConstants, sizeArr);
+    fullArrWithInteger(str, beginIterator, endIterator, arrConstants, sizeArr);
 }
 
 //Look through the string and find appropriate lines of numbers (only numerals and '-')
-static void readStr(std::string &str, double* arrConstants, int& sizeArr)
+static void readStr(std::string& str, double* arrConstants, int& sizeArr)
 {
-    int isRecordedNow = false;//is we find an appropriate substring and we are finding now its end
-    int beginningString = 0; //current element of string to pass it as a beginning of substring
+    int isRecordedNow = false;
+    int startSymbol = 0; //We need to pass a start point of substring
 
     for (int i = 0; i < str.size(); i++)
     {
         if (compareElement(str[i]))
         {
             if (false == isRecordedNow) {
-                newStr = str + i;
+                startSymbol = i;
                 isRecordedNow = true;
             }
-            sizeOfNewStr++;
 
             if (i + 1 >= str.size()){
-                turnStrToInteger(str, beginningString, arrConstants, sizeArr);
+                turnStrToInteger(str, startSymbol, i, arrConstants, sizeArr);
             }
         }
         else
         {
             if (true == isRecordedNow){
-                turnStrToInteger(str, beginningString, arrConstants, sizeArr);
+                turnStrToInteger(str, startSymbol, i-1, arrConstants, sizeArr);
                 isRecordedNow = false;
-                sizeOfNewStr = 0;
             }
         }
     }
@@ -107,7 +105,7 @@ static void readStr(std::string &str, double* arrConstants, int& sizeArr)
 
 
 //Proccess the inputted line
-static void constants10x(std::string &str10X)
+static void constants10x(std::string& str10X)
 {
     double* arrOfConstants10x = new double[(str10X.size() / 2) + 1];
     int sizeOfarr = 0;
@@ -121,7 +119,7 @@ static void constants10x(std::string &str10X)
 }
 
 
-void pointersToFuncWeek6_3(std::ifstream& FIN)
+void pointersToFuncWeek6_3string(std::ifstream& FIN)
 {
     FIN.open("resources/pointersToFuncWeek6_3.txt");
     int numberOfTests = 0;
@@ -131,14 +129,12 @@ void pointersToFuncWeek6_3(std::ifstream& FIN)
     {
         int lenghtOfString = 0;
         FIN >> lenghtOfString;
-        if (lenghtOfString < 1) continue;
+        FIN.get();
 
-        std::string symbolStr; //(lenghtOfString);
+        std::string symbolStr;
         std::getline(FIN, symbolStr);
 
-        //for (int i = 0; i < lenghtOfString; i++) FIN >> symbolStr[i];
-
         constants10x(symbolStr);
+
     }
 }
-*/

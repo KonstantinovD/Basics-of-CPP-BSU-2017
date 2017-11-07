@@ -13,7 +13,7 @@ struct projectNameNumber
     int tacks;
 };
 const int NUMBER_OF_PROJECTS = 5;
-projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 4 tacks", 4 }, {"week 7 Arithmetic expressions and stack: 3 tacks", 3}};
+projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 5 tacks", 5 }, {"week 7 Arithmetic expressions and stack: 3 tacks", 3}};
 
 
 static int chooseTack(int maxTackNumber)
@@ -144,6 +144,7 @@ void mainLoop()
                 case 2: { pointersToFuncWeek6_2(FIN); break; }
                 case 3: { pointersToFuncWeek6_3(FIN); break; }
                 case 4: { pointersToFuncWeek6_4(FIN); break; }
+                case 5: { pointersToFuncWeek6_3string(FIN); break; }
                 default: break;
                 }
 
@@ -164,7 +165,7 @@ void mainLoop()
                 switch (crucialValue)//Perform current tack
                 {
                 case 1: { strOfExpressionsWeek7_1(FIN); break; }
-                //case 2: { strOfExpressionsWeek7_2(FIN); break; }
+                case 2: { strOfExpressionsWeek7_2(FIN); break; }
                 //case 3: { strOfExpressionsWeek7_3(FIN); break; }
                 default: break;
                 }
