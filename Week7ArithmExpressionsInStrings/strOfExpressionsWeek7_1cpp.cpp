@@ -5,7 +5,7 @@
 
 #include "localHeaders\stackADT.h"
 
-static bool isExpressionCorrect(char* str, int size)
+static bool isExpressionCorrect(char* str, int size)//Check the correction of the bracket sequence
 {
     StackADT<char> bracketStack;
     char compareSymbol = '?';
@@ -14,13 +14,13 @@ static bool isExpressionCorrect(char* str, int size)
     {
         if (str[i] == '{' || str[i] == '[') bracketStack.push(str[i]);
         if (str[i] == '}' || str[i] == ']'){
-            compareSymbol = '?'; //if stack doesn't return any symbol, 
+            compareSymbol = '?'; //if stack doesn't return any symbol, we will compare this with closing bracket
             compareSymbol = bracketStack.pop();
             if (str[i] == '}' && compareSymbol != '{') return false;
             if (str[i] == ']' && compareSymbol != '[') return false;
         }
     }
-    if (!bracketStack.isEmpty()) return false;
+    if (!bracketStack.isEmpty()) return false;//If not all opening bracked have the closing for it
     else return true;
 }
 

@@ -5,9 +5,10 @@
 #include <iostream>
 #include <cstdlib>
 
-#include "localHeaders\stackADT.h"
+#include "localHeaders/stackADT.h"
 
-int priority(char operation)
+
+static int priority(char operation)
 {
     switch (operation)
     {
@@ -18,9 +19,8 @@ int priority(char operation)
     }
 }
 
-void updateValuesStack(StackADT<int>& values, char operation)
+static void updateValuesStack(StackADT<int>& values, char operation)//Execute current operation with 2 upper values
 {
-    //Maybe I chould have made the checking is stack isn't empty between b and a 
     int b = values.pop(),
         a = values.pop(),
         res = 0;
@@ -36,33 +36,50 @@ void updateValuesStack(StackADT<int>& values, char operation)
     values.push(res);
 }
 
-int convertToPoland(char* exp, int size)
+static int convertToPoland(char* exp, int size)
 {
     StackADT<char> opers;
     StackADT<int> values;
 
+
+    
+    char lowerProritetOperand = '+';
+
+    int signedNumber = 1;
+    char* passNumber = new char[1];
     bool isProcessNumber = false;
     int currentValue = 0;
-
-    char* passNumber = new char[1];
-
-    int poppedOper = '+';
-
+    int counterOfOperations = 1;
     for (int i = 0; i < size; i++)
     {
-        if (isdigit(exp[i])){
+        if (isdigit(exp[i])){//reading number
             isProcessNumber = true;
             currentValue *= 10;
             passNumber[0] = exp[i];
             currentValue += atoi(passNumber);
         }
         else{
-            if (isProcessNumber == true){
+            if (isProcessNumber == true){//If we had read number just, push it into stack
+                currentValue *= signedNumber;
+                signedNumber = 1;
                 values.push(currentValue);
                 currentValue = 0;
                 isProcessNumber = false;
+                counterOfOperations = 0;
+                
             }
-            if (true == opers.isEmpty() || priority(exp[i]) > priority(opers.get())||exp[i] == '(') opers.push(exp[i]);//'*' compares to '(' and all crashed
+            counterOfOperations++;//counter is used for discovering unary + or -, in case we have bracket, counter doesn't rise, because there can be a lot of brackets
+            if (counterOfOperations > 1){//If we have a sing + or - before the number
+                if (exp[i] == '+') continue;
+                if (exp[i] == '-') {
+                    signedNumber *= (-1);
+                    continue;
+                }
+            }
+            if (true == opers.isEmpty() || priority(exp[i]) > priority(opers.get()) || exp[i] == '(') {
+                opers.push(exp[i]);
+                if (exp[i] == '(') counterOfOperations--;
+            }
             else{
                 if (exp[i] == ')'){
                     while (opers.get() != '(')
@@ -70,16 +87,21 @@ int convertToPoland(char* exp, int size)
                         updateValuesStack(values, opers.pop());
                     }
                     opers.pop();
+                    counterOfOperations--;
                 }
                 else{
-                    poppedOper = opers.pop();
+                    lowerProritetOperand = opers.pop();
                     opers.push(exp[i]);
-                    updateValuesStack(values, poppedOper);
+                    updateValuesStack(values, lowerProritetOperand);
                 }
             }
+
         }
     }
-    if (isProcessNumber == true) values.push(currentValue); //We can to have the value at the end
+    if (isProcessNumber == true) { //We can to have the value at the end, but we don't have any operand to stop reading value ant push it into stack
+        currentValue *= signedNumber;
+        values.push(currentValue);
+    }
 
     while (false == opers.isEmpty())
     {

@@ -9,11 +9,12 @@
 
 struct projectNameNumber
 {
-    char* name;
+    const char* name;
     int tacks;
 };
-const int NUMBER_OF_PROJECTS = 5;
-projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 5 tacks", 5 }, {"week 7 Arithmetic expressions and stack: 3 tacks", 3}};
+const int NUMBER_OF_PROJECTS = 6;
+projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 5 tacks", 5 }, { "week 7 Arithmetic expressions and stack: 2 tacks", 2 }, 
+{ "week 8 Classes: 1 tack", 2 }};
 
 
 static int chooseTack(int maxTackNumber)
@@ -59,8 +60,6 @@ void mainLoop()
         switch (numberOfTack)
         {
         case 1:{
-
-//#ifdef INTEGER_ARIPHMETIC
             while (true)
             {
                 int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
@@ -79,7 +78,6 @@ void mainLoop()
                 FIN.close();
             }
             break;
-//#endif
         }
         case 2:{
 
@@ -87,9 +85,9 @@ void mainLoop()
             while (true)
             {
                 int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
-                if (-1 == crucialValue) break;//incorrect input of the tack, ;
+                if (-1 == crucialValue) break;
 
-                switch (crucialValue)//Perform current tack
+                switch (crucialValue)
                 {
                 case 1: { arrayOperationsWeek4_1(FIN); break; }
                 case 2: { arrayOperationsWeek4_2(FIN); break; }
@@ -111,9 +109,9 @@ void mainLoop()
             while (true)
             {
                 int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
-                if (-1 == crucialValue) break;//incorrect input of the tack, ;
+                if (-1 == crucialValue) break;
 
-                switch (crucialValue)//Perform current tack
+                switch (crucialValue)
                 {
                 case 1: { sortAndMatrixWeek5_1(FIN); break; }
                 case 2: { sortAndMatrixWeek5_2(FIN); break; }
@@ -136,9 +134,9 @@ void mainLoop()
             while (true)
             {
                 int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
-                if (-1 == crucialValue) break;//incorrect input of the tack, ;
+                if (-1 == crucialValue) break;
 
-                switch (crucialValue)//Perform current tack
+                switch (crucialValue)
                 {
                 case 1: { pointersToFuncWeek6_1(FIN); break; }
                 case 2: { pointersToFuncWeek6_2(FIN); break; }
@@ -160,13 +158,33 @@ void mainLoop()
             while (true)
             {
                 int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
-                if (-1 == crucialValue) break;//incorrect input of the tack, ;
+                if (-1 == crucialValue) break;
 
-                switch (crucialValue)//Perform current tack
+                switch (crucialValue)
                 {
                 case 1: { strOfExpressionsWeek7_1(FIN); break; }
                 case 2: { strOfExpressionsWeek7_2(FIN); break; }
-                //case 3: { strOfExpressionsWeek7_3(FIN); break; }
+                default: break;
+                }
+
+                FIN.close();
+            }
+            break;
+
+
+        }
+        case 6:{
+
+
+            while (true)
+            {
+                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                if (-1 == crucialValue) break;
+
+                switch (crucialValue)
+                {
+                case 1: { classesWeek8_1(FIN); break; }
+                case 2: { classesWeek8_2(FIN); break; }
                 default: break;
                 }
 

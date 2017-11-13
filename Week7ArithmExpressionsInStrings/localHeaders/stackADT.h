@@ -13,7 +13,7 @@ private:
 public:
     StackADT();
     ~StackADT(){};//destructor
-    StackADT(StackADT& obj);//Copy constructor
+    StackADT(const StackADT& obj);//Copy constructor
     void push(T value);
     T pop();
     T get();
@@ -25,7 +25,7 @@ template <typename T>
 StackADT<T>::StackADT(){ top = 0; }
 
 template <typename T>
-StackADT<T>::StackADT(StackADT& obj){
+StackADT<T>::StackADT(const StackADT& obj){
     for (int i = 0; i < obj.top; i++)
     {
         dataArr[i] = obj.dataArr[i];
