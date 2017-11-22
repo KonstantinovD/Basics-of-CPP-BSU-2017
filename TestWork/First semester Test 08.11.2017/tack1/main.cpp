@@ -53,7 +53,9 @@ void clearString(string& text, int necessaryLenght)
                 if (true == checkIsLiteral(text[indexOfBegin])){
                     for (int i = 0; i < (necessaryLenght + additionalSigns); i++) text.erase(text.begin() + indexOfBegin);
                     if (text[indexOfBegin] == ' ') text.erase(text.begin() + indexOfBegin);//in case puncluation sign follows up the word we shouldn't delete it
-                    else text.erase(text.begin() + indexOfBegin - 1);
+                    else {
+                        if(indexOfBegin > 0) text.erase(text.begin() + indexOfBegin - 1);
+                    }
                     i = indexOfBegin;
                 }
             }
