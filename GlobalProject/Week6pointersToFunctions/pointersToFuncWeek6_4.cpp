@@ -6,27 +6,23 @@
 #include <math.h>
 #include <algorithm>
 
+#include "../Week10Wordprocessing/localHeaders/task10functions.h"
+
 //If symbol is a numeral, or can be a part of number(like '-' / '.' in case of double), we return true
 static bool compareElement(char symbol, bool isDouble)
 {
-    char allSymb[12] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '.' };
-    int endOfSymb = 11;
-    if (true == isDouble) endOfSymb++; //in case of double
-
-    for (int i = 0; i < endOfSymb; i++)
-    {
-        if (allSymb[i] == symbol) return true;
-    }
+    //if (true == isDouble) endOfSymb++; 
+    if ((symbol >= '0'&&symbol <= '9') || (symbol == '-') || 
+        ((true == isDouble) && (symbol == '.'))) //in case of double
+        return true;
     return false;
 }
 
 //get numeral from symbol 
 static int convertSymbolToNumeral(char symbol)
 {
-    char numerals[11] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'};
-    for (int i = 0; i < 11; i++)
-        if (numerals[i] == symbol) return i;
-
+    if ((symbol >= '0'&&symbol <= '9')) return (symbol - '0');
+    if (symbol == '.') return 10;
     std::cout << "!!BAD WORK, MISTAKES!!!" << std::endl;
 }
 
@@ -137,8 +133,8 @@ static void turnStrToNumber(char* str, int size, double* arrConstants, int& size
     else fullArrWithDouble(str, size, arrConstants, sizeArr);
 }
 
-//Look through the string and find appropriate lines of numbers (only numerals and '-'/ and '.' in case of double)
-static void readStr(char* str, int size, double* arrConstants, int& sizeArr, bool isDouble)
+//Looks through the string and find appropriate lines of numbers (only numerals and '-'/ and '.' in case of double)
+void readStr(char* str, int size, double* arrConstants, int& sizeArr, bool isDouble)
 {
     int isRecordedNow = false;
     char* newStr = str; //char* will be passed and converted to int

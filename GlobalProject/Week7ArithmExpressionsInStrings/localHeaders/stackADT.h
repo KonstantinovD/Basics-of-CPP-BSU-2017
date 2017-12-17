@@ -1,15 +1,14 @@
 #pragma once
 
-
 const int MAX_SIZE = 100;
 
-#include <iostream>
 template <typename T>
 class StackADT
 {
 private:
     T dataArr[MAX_SIZE];
     int top;
+
 public:
     StackADT();
     ~StackADT(){};//destructor
@@ -31,7 +30,6 @@ StackADT<T>::StackADT(const StackADT& obj){
         dataArr[i] = obj.dataArr[i];
     }
     top = obj.top;
-    std::cout << " copy " << std::endl;
 }
 
 template <typename T>
@@ -66,3 +64,4 @@ T StackADT<T>::get()
         return dataArr[top-1];
     }
 }
+

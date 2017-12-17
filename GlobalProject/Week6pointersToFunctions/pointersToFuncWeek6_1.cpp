@@ -79,20 +79,20 @@ static void inputAction(int* (**funcArr)(int*, int&), int* arr, int arraySize)//
         size = arraySize;
         switch (actionNumber)
         {
-        case 1: {
-            int* currArr = funcArr[0](arr, size);
+        case 1: case 2:{
+            int* currArr = funcArr[actionNumber - 1](arr, size);
             for (int i = 0; i < size; i++) std::cout << currArr[i] << " ";
             std::cout << std::endl;
             delete[] currArr;
             break;
         }
-        case 2: {
+       /* case 2: {
             int* currArr = funcArr[1](arr, size);
             for (int i = 0; i < size; i++) std::cout << currArr[i] << " ";
             std::cout << std::endl;
             delete[] currArr;
             break;
-        }
+        }*/
         case 3: {
             funcArr[2](arr, size);
             std::cout << "Median of array is " << size << std::endl;

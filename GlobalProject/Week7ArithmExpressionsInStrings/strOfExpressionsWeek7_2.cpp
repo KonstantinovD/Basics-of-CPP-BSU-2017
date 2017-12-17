@@ -41,6 +41,10 @@ static int convertToPoland(char* exp, int size)
     StackADT<char> opers;
     StackADT<int> values;
 
+    if (false == (exp[0] == '(' || (exp[0] >= '0' && exp[0] <= '9'))){
+        std::cout << "Incorrect input, task hasn't been executed ";
+        return -1;
+    }
 
     
     char lowerProritetOperand = '+';

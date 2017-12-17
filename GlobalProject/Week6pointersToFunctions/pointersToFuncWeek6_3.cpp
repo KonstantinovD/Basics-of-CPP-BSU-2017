@@ -9,20 +9,14 @@
 //If symbol is a numeral, or can be a part of number(like '-'), we return true
 static bool compareElement(char symbol)
 {
-    char allSymb[11] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'};
-    for (int i = 0; i < 11; i++)
-    {
-        if (allSymb[i] == symbol) return true;
-    }
+    if ((symbol >= '0'&&symbol <= '9') || (symbol == '-')) return true;
     return false;
 }
 
 //Ordinary convertion from symbol to numeral
 static int convertSymbolToNumeral(char symbol)
 {
-    char numerals[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    for (int i = 0; i < 10; i++)
-        if (numerals[i] == symbol) return i;
+    if (symbol >= '0' && symbol <= '9') return (symbol - '0');
     return -1;
 }
 

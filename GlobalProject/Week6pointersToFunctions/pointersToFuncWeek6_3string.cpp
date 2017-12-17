@@ -7,20 +7,14 @@
 //If symbol is a numeral, or can be a part of number(like '-'), we return true
 static bool compareElement(char symbol)
 {
-    char allSymb[11] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-' };
-    for (int i = 0; i < 11; i++)
-    {
-        if (allSymb[i] == symbol) return true;
-    }
+    if ((symbol >= '0'&&symbol <= '9') || (symbol == '-')) return true;
     return false;
 }
 
 //Ordinary convertion from symbol to numeral
 static int convertSymbolToNumeral(char symbol)
 {
-    char numerals[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-    for (int i = 0; i < 10; i++)
-        if (numerals[i] == symbol) return i;
+    if (symbol >= '0' && symbol <= '9') return (symbol - '0');
     return -1;
 }
 
@@ -37,7 +31,7 @@ static void fullArrWithInteger(std::string& str, int beginIterator, int endItera
         isNegative = true;
     }
 
-    while (i < endIterator + 1)
+    while (i < endIterator)
     {
         tempVar *= 10;
         tempVar += convertSymbolToNumeral(str[i]);
@@ -55,13 +49,13 @@ static void turnStrToInteger(std::string& str, int beginIterator, int endIterato
 {
    // int size = endIterator - beginIterator;
 
-    if (endIterator - beginIterator < 1 || endIterator - beginIterator == 1 && str[beginIterator] == '-') return; //number doesn't exist without numerals
+    if (endIterator - beginIterator < 1 || (endIterator - beginIterator == 1 && str[beginIterator] == '-')) return; //number doesn't exist without numerals
 
 
-    for (int i = beginIterator+1; i <= endIterator; i++){
+    for (int i = beginIterator+1; i < endIterator; i++){
         if (str[i] == '-'){
 
-            fullArrWithInteger(str, beginIterator, i-1, arrConstants, sizeArr);
+            fullArrWithInteger(str, beginIterator, i, arrConstants, sizeArr);
             turnStrToInteger(str, i, endIterator, arrConstants, sizeArr);
             return;
         }
@@ -92,7 +86,7 @@ static void readStr(std::string& str, double* arrConstants, int& sizeArr)
         else
         {
             if (true == isRecordedNow){
-                turnStrToInteger(str, startSymbol, i-1, arrConstants, sizeArr);
+                turnStrToInteger(str, startSymbol, i, arrConstants, sizeArr);
                 isRecordedNow = false;
             }
         }

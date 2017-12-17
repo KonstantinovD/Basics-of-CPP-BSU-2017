@@ -16,15 +16,14 @@ static int** insertRow(std::ifstream& FIN, int ** arr, int& sizeY, int sizeX)
     }
 
     int** expandedArr = new int*[sizeY + 1];
-
-    int subtractOne = 0;
-    for (int i = 0; i < sizeY + 1; i++)
+    
+    for (int i = 0; i < numberOfRow; i++)
     {
-        if (i == numberOfRow) {
-            subtractOne = -1;
-            continue;
-        }
-        expandedArr[i] = arr[i+subtractOne];
+        expandedArr[i] = arr[i];
+    }
+    for (int i = numberOfRow+1; i < sizeY + 1; i++)
+    {
+        expandedArr[i] = arr[i - 1];
     }
 
     expandedArr[numberOfRow] = new int[sizeX];
@@ -48,14 +47,14 @@ static int** deleteRow(std::ifstream& FIN, int ** arr, int& sizeY)
 
     int** decreasedArr = new int*[sizeY - 1];
 
-    int subtractOne = 0;
-    for (int i = 0; i < sizeY; i++)
+    for (int i = 0; i < numberOfRow; i++)
     {
-        if (i == numberOfRow) {
-            subtractOne = -1;
-            continue;
-        }
-        decreasedArr[i + subtractOne] = arr[i];
+        decreasedArr[i] = arr[i];
+    }
+
+    for (int i = numberOfRow + 1; i < sizeY; i++)
+    {
+        decreasedArr[i - 1] = arr[i];
     }
 
     delete[] arr;
