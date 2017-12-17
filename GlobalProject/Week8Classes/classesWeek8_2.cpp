@@ -1,8 +1,8 @@
 #include "../include/TackInclude.h"
 
+
 #include <fstream>
 #include <iostream>
-#include <ctime>
 
 #include "localHeaders/ComplexNumber.h"
 #include "../Week7ArithmExpressionsInStrings/localHeaders/stackADT.h"
@@ -15,6 +15,7 @@ static void stackForComplexNumbers(std::ifstream& FIN){//using stackADT with Com
     ComplexNumber storageNumber;
     double inputReZ = 0.0,
         inputImZ = 0.0;
+    
 
     for (int i = 0; i < numberOfPushedComplex; i++)
     {
