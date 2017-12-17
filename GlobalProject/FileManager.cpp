@@ -12,26 +12,26 @@ struct projectNameNumber
     const char* name;
     int tacks;
 };
-const int NUMBER_OF_PROJECTS = 6;
-projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tacks", 5}, { "week 4 Array operations: 5 tacks", 5 }, { "week 5 Sort and matrix: 6 tacks", 6 }, { "week 6 Pointers to functions and strings: 5 tacks", 5 }, { "week 7 Arithmetic expressions and stack: 2 tacks", 2 }, 
-{ "week 8 Classes: 1 tack", 2 }};
+const int NUMBER_OF_PROJECTS = 8;
+projectNameNumber projectsNames[]{ {"week 3 Integer arithmetic: 5 tasks", 5}, { "week 4 Array operations: 5 tasks", 5 }, { "week 5 Sort and matrix: 6 tasks", 6 }, { "week 6 Pointers to functions and strings: 5 tasks", 5 }, { "week 7 Arithmetic expressions and stack: 2 tasks", 2 }, 
+{ "week 8 Classes: 2 tasks", 2 }, { "week 9 Processing files: 1 task", 1 }, {"week 10 Word processing: 1 task", 1}};
 
 
-static int chooseTack(int maxTackNumber)
+static int chooseTask(int maxTackNumber)
 {
-    int tackNumberToReturn = 0;
+    int taskNumberToReturn = 0;
    
     while (true)
     {
-        std::cout << "Input tne number of the necessary tack to execute it or \"0\" to finish work: ";
-        std::cin >> tackNumberToReturn;
+        std::cout << "Input tne number of the necessary task to execute it or \"0\" to finish work: ";
+        std::cin >> taskNumberToReturn;
 
-        if (tackNumberToReturn > 0 && tackNumberToReturn <= maxTackNumber)
+        if (taskNumberToReturn > 0 && taskNumberToReturn <= maxTackNumber)
         {
-            return tackNumberToReturn;
+            return taskNumberToReturn;
         }
-        if(tackNumberToReturn == 0) return -1;
-        std::cout << "Such tack isn't exist" << std::endl;
+        if(taskNumberToReturn == 0) return -1;
+        std::cout << "Such task doesn't exist" << std::endl;
     }
 }
 
@@ -50,19 +50,19 @@ void mainLoop()
         }
         std::cout << std::endl;
 
-        int numberOfTack;//input number of tack
-        std::cin >> numberOfTack;
-        if (numberOfTack > NUMBER_OF_PROJECTS || numberOfTack < 1){ //in case input is incorrect, we continue loop
-            std::cout << "Such project isn't exist" << std::endl;
+        int numberOfTask;//input number of tack
+        std::cin >> numberOfTask;
+        if (numberOfTask > NUMBER_OF_PROJECTS || numberOfTask < 1){ //in case input is incorrect, we continue loop
+            std::cout << "Such project doesn't exist" << std::endl;
             continue;
         }
 
-        switch (numberOfTack)
+        switch (numberOfTask)
         {
         case 1:{
             while (true)
             {
-                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;//incorrect input of the tack, ;
 
                 switch (crucialValue)//Perform current tack
@@ -84,7 +84,7 @@ void mainLoop()
 
             while (true)
             {
-                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
 
                 switch (crucialValue)
@@ -108,7 +108,7 @@ void mainLoop()
 
             while (true)
             {
-                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
 
                 switch (crucialValue)
@@ -133,7 +133,7 @@ void mainLoop()
 
             while (true)
             {
-                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
 
                 switch (crucialValue)
@@ -157,7 +157,7 @@ void mainLoop()
 
             while (true)
             {
-                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
 
                 switch (crucialValue)
@@ -178,7 +178,7 @@ void mainLoop()
 
             while (true)
             {
-                int crucialValue = chooseTack(projectsNames[numberOfTack - 1].tacks);
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
 
                 switch (crucialValue)
@@ -194,6 +194,44 @@ void mainLoop()
 
 
         }
+        case 7:{
+            while (true)
+            {
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
+                if (-1 == crucialValue) break;
+
+                switch (crucialValue)
+                {
+                case 1: { processingFilesWeek9_1(FIN); break; }
+                default: break;
+                }
+
+                FIN.close();
+            }
+            break;
+
+
+        }
+
+        case 8:{
+            while (true)
+            {
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
+                if (-1 == crucialValue) break;
+
+                switch (crucialValue)
+                {
+                case 1: { wordProcessingWeek10_1(FIN); break; }
+                default: break;
+                }
+
+                FIN.close();
+            }
+            break;
+
+
+        }
+
         default: break;
         }
 
@@ -205,6 +243,5 @@ void mainLoop()
         std::cin >> isContinueExecution;
         std::cout << std::endl << std::endl << std::endl;
     }
-
 
 }
