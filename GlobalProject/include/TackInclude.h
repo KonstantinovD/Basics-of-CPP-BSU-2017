@@ -41,3 +41,12 @@ void strOfExpressionsWeek7_2(std::ifstream& FIN);
 //Week8
 void classesWeek8_1(std::ifstream& FIN);
 void classesWeek8_2(std::ifstream& FIN);
+
+//Week9
+void processingFilesWeek9_1(std::ifstream& FIN);
+
+//Week 10
+void wordProcessingWeek10_1(std::ifstream& FIN);
+
+//Week 11
+void containersWeek11_1(std::ifstream& FIN);
