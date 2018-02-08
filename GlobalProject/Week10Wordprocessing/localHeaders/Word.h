@@ -40,5 +40,8 @@ public:
 public:
     int getLenght();
     void clear();
+
+private:
+    bool compareElement(char);
 };
 

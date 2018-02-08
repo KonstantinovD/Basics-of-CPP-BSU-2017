@@ -50,3 +50,14 @@ void wordProcessingWeek10_1(std::ifstream& FIN);
 
 //Week 11
 void containersWeek11_1(std::ifstream& FIN);
+void containersWeek11_2(std::ifstream& FIN);
+void containersWeek11_3(std::ifstream& FIN);
+
+//Week 12
+void abstractVirtualWeek12_1(std::ifstream& FIN);
+void abstractVirtualWeek12_2(std::ifstream& FIN);
+
+//practice week 2
+void stlPractW2_1(std::ifstream& FIN);
+void stlPractW2_2(std::ifstream& FIN);
+void stlPractW2_3(std::ifstream& FIN);

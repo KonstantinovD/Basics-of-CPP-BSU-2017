@@ -1,0 +1,6 @@
+Anna 1 7.8
+Fyodor 1 8.6
+Nicolay 5 6.3
+Ivan 5 8.1
+Pyotr 1 8.6
+Evdenia 1 7.4

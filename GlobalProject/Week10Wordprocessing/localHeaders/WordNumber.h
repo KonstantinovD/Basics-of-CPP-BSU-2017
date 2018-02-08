@@ -18,6 +18,7 @@ public:
 public:
     int get(char*);
     void set(const WordNumber&);
+    void set(Word&);
     void set(char);
     void set(char*);
 

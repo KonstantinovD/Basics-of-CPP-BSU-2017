@@ -44,6 +44,14 @@ void WordNumber::set(char* word){
     Word::set(word);
     readNumberFromString(lenght, wordStr, value);
 }
+//the absolute value of Word should be less or equals to the max value of integer type
+void WordNumber::set(Word& word)
+{
+    if (true == word.isWordNumber()){
+        Word::set(word);
+        readNumberFromString(lenght, wordStr, value);
+    }   
+}
 
 int WordNumber::getNumber(){
     return value;

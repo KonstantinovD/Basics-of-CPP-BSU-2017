@@ -106,6 +106,7 @@ char Word::get(int index){
 
 void Word::set(const Word& word){
     if (lenght > 0){ delete[] wordStr; }
+    lenght = word.lenght;
     if (word.lenght < 1){
         lenght = 0;
         wordStr = nullptr;
@@ -125,9 +126,9 @@ void Word::set(char smb){
 }
 
 void Word::set(char* word){
+    if (lenght > 0){ delete[] wordStr; }
     lenght = strlen(word);
     if (lenght > 0){
-        if (lenght > 0){ delete[] wordStr; }
         wordStr = new char[lenght];
         for (int i = 0; i < lenght; i++){ wordStr[i] = word[i]; }
     }
@@ -188,6 +189,10 @@ bool Word::operator==(Word& word){
 bool Word::isWordNumber(){
     double* arrNumber = new double[lenght/2 + 1];
     int sizeArrNumber = 0;
+    for (int i = 0; i < lenght; i++){
+        if (false == compareElement(wordStr[i])) return false;
+    }
+
     readStr(wordStr, lenght, arrNumber, sizeArrNumber, false);
     if (sizeArrNumber != 1 || abs(arrNumber[0]) > INT_MAX) {
         delete[] arrNumber;
@@ -201,8 +206,10 @@ bool Word::operator>(Word& word){
     if (lenght > word.lenght) return true;//If first word is longer than second
     if (lenght == word.lenght){
         for (int i = 0; i < lenght; i++){
-            if (wordStr[i] != word.wordStr[i])
-                return (wordStr[i] - word.wordStr[i]);
+            if (wordStr[i] != word.wordStr[i]){
+                if ((wordStr[i] - word.wordStr[i]) > 0) return true;
+                return false;
+            }
         }
     }
     return false;
@@ -236,4 +243,11 @@ static void errorReport(const char* message){
     //Sometimes we need to use "system("pause")", but it doesn't works in codeblock IDE, for instance; so it is better to use standart input stream
     std::cin >> waitForUser;
     exit(-1);
+}
+
+bool Word::compareElement(char symbol)
+{ 
+    if ((symbol >= '0'&& symbol <= '9') || (symbol == '-'))
+        return true;
+    return false;
 }
