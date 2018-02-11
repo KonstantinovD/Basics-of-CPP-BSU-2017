@@ -1,11 +1,11 @@
-#include "../include/TackInclude.h"
+#include "../../include/TackInclude.h"
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-struct SStud{
+static struct SStud{
     static const int nameSymbols = 20;
 
     char name[nameSymbols];
@@ -18,7 +18,7 @@ struct SStud{
     }
 };
 
-void printVect(std::vector<SStud> students){
+static void printVect(std::vector<SStud> students){
     for (SStud st : students){
         std::cout << st.name << ", group: " << st.group << " ball: " << st.ball << std::endl;
     }
@@ -55,6 +55,7 @@ void stlPractW2_3(std::ifstream& FIN){
             std::cout << st.name << std::endl;
         }
     }
+    std::cout << std::endl;
 
     std::vector<SStud> secondStudents(students);
     std::reverse(secondStudents.begin(), secondStudents.end());
