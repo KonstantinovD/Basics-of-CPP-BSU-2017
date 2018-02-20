@@ -29,7 +29,7 @@ static void commonExecute(ForwardIterator first, ForwardIterator last){
 
 
 void seqCont_S2Week1_3(std::ifstream &FIN){
-    FIN.open("resources/associatCont_S2Week1_3.txt");
+    FIN.open("resources/seqCont_S2Week1_3.txt");
     std::list<int> ls;
     std::deque<int> deq;
     std::vector<int> vect;

@@ -12,9 +12,10 @@ struct projectNameNumber
     const char* name;
     int tacks;
 };
-const int NUMBER_OF_PROJECTS = 13;
-projectNameNumber projectsNames[NUMBER_OF_PROJECTS]{ {"week 3 Integer arithmetic: 5 tasks", 5}, { "week 4 Array operations: 5 tasks", 5 }, { "week 5 Sort and matrix: 6 tasks", 6 }, { "week 6 Pointers to functions and strings: 5 tasks", 5 }, { "week 7 Arithmetic expressions and stack: 2 tasks", 2 }, 
-{ "week 8 Classes: 2 tasks", 2 }, { "week 9 Processing files: 1 task", 1 }, { "week 10 Word processing: 1 task", 1 }, { "week 11 Word processing: 3 tasks", 3 }, { "week 12 Abstract classes & virtual functions: 2 tasks", 2 }, { "practice week 2 STL: 3 tasks", 3 }, { "term 2 week 1 STL sequential: 3 tasks", 3 }, { "term 2 week 2 STL associative: 3 tasks", 3 }};
+const int NUMBER_OF_PROJECTS = 15;
+projectNameNumber projectsNames[NUMBER_OF_PROJECTS]{ {"week 3 Integer arithmetic: 5 tasks", 5}, { "week 4 Array operations: 5 tasks", 5 }, { "week 5 Sort and matrix: 6 tasks", 6 }, { "week 6 Pointers to functions and strings: 5 tasks", 5 }, { "week 7 Arithmetic expressions and stack: 2 tasks", 2 },
+{ "week 8 Classes: 2 tasks", 2 }, { "week 9 Processing files: 1 task", 1 }, { "week 10 Word processing: 1 task", 1 }, { "week 11 Word processing: 3 tasks", 3 }, { "week 12 Abstract classes & virtual functions: 2 tasks", 2 }, { "practice week 2 STL: 3 tasks", 3 }, { "week 1 term 2 STL sequential: 3 tasks", 3 }, { "week 2 term 2 STL associative: 3 tasks", 3 },
+{ "practice week 1 Templates: 2 tasks", 3 }, { "practice week 3 Flowerbed: 1 task", 1 } };
 
 
 static int chooseTask(int maxTackNumber)
@@ -103,107 +104,61 @@ void mainLoop()
             }break;
         }
         case 4:{
-            while (true)
-            {
+            while (true){
                 int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
-
-                switch (crucialValue)
-                {
+                switch (crucialValue){
                 case 1: { pointersToFuncWeek6_1(FIN); break; }
                 case 2: { pointersToFuncWeek6_2(FIN); break; }
                 case 3: { pointersToFuncWeek6_3(FIN); break; }
                 case 4: { pointersToFuncWeek6_4(FIN); break; }
                 case 5: { pointersToFuncWeek6_3string(FIN); break; }
                 default: break;
-                }
-
-                FIN.close();
-            }
-            break;
-
-
+                }FIN.close();
+            }break;
         }
         case 5:{
-
-
-            while (true)
-            {
+            while (true){
                 int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
-
-                switch (crucialValue)
-                {
+                switch (crucialValue){
                 case 1: { strOfExpressionsWeek7_1(FIN); break; }
                 case 2: { strOfExpressionsWeek7_2(FIN); break; }
                 default: break;
-                }
-
-                FIN.close();
-            }
-            break;
-
-
+                }FIN.close();
+            }break;
         }
         case 6:{
-
-
-            while (true)
-            {
+            while (true){
                 int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
-
-                switch (crucialValue)
-                {
+                switch (crucialValue){
                 case 1: { classesWeek8_1(FIN); break; }
                 case 2: { classesWeek8_2(FIN); break; }
                 default: break;
-                }
-
-                FIN.close();
-            }
-            break;
-
-
+                }FIN.close();
+            }break;
         }
         case 7:{
-            while (true)
-            {
+            while (true){
                 int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
-
-                switch (crucialValue)
-                {
+                switch (crucialValue){
                 case 1: { processingFilesWeek9_1(FIN); break; }
                 default: break;
-                }
-
-                FIN.close();
-            }
-            break;
-
-
+                }FIN.close();
+            }break;
         }
-
         case 8:{
-            while (true)
-            {
+            while (true){
                 int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
                 if (-1 == crucialValue) break;
-
-                switch (crucialValue)
-                {
+                switch (crucialValue){
                 case 1: { wordProcessingWeek10_1(FIN); break; }
                 default: break;
-                }
-
-                FIN.close();
-            }
-            break;
-
-
+                }FIN.close();
+            }break;
         }
-
         case 9:{
             while (true) {
                 int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
@@ -263,7 +218,28 @@ void mainLoop()
                 } FIN.close();
             } break;
         }
-
+        case 14:{
+            while (true){
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
+                if (-1 == crucialValue) break;
+                switch (crucialValue){
+                case 1: { break; }
+                case 2: { templatesPractW1_2(FIN); break; }
+                case 3: { templatesPractW1_3(FIN); break; }
+                default: break;
+                } FIN.close();
+            } break;
+        }
+        case 15:{
+            while (true){
+                int crucialValue = chooseTask(projectsNames[numberOfTask - 1].tacks);
+                if (-1 == crucialValue) break;
+                switch (crucialValue){
+                case 1: { floweredbedPractW3_1(FIN);  break; }
+                default: break;
+                } FIN.close();
+            } break;
+        }
         default: break;
         }
 

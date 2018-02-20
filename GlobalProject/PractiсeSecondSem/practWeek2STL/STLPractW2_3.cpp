@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <map>
 
 static struct SStud{
     static const int nameSymbols = 20;
@@ -62,6 +63,25 @@ void stlPractW2_3(std::ifstream& FIN){
     std::cout << "reversed vector: " << std::endl;
     printVect(secondStudents);
     
+    struct averageBall{
+        double ballSum;
+        int numberOfBalls;
+        averageBall(): ballSum(0.0), numberOfBalls(0){}
+    };
+    std::map<int, averageBall> studMap;
+    for (SStud st : students){
+        studMap[st.group].ballSum += st.ball;
+        studMap[st.group].numberOfBalls++;
+    }
+    std::vector<std::pair<int, double>> groups;
+    for(auto elem : studMap){
+        std::pair<int, double> pairGroup;
+        groups.push_back(std::pair<int, double>(elem.first, ((double)elem.second.ballSum / elem.second.numberOfBalls)));
+    }
+    for (std::pair<int, double> pairGroup : groups){
+        std::cout << pairGroup.first << " group, average ball: " << pairGroup.second << std::endl;
+    }std::cout << std::endl;
+
 
     std::sort(students.begin(), students.end(), [](SStud p1, SStud p2){ 
         return(std::string(p1.name).compare(std::string(p2.name)) < 0);

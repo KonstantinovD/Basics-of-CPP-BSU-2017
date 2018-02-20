@@ -6,7 +6,7 @@
 
 
 void seqCont_S2Week1_2(std::ifstream &FIN){
-    FIN.open("resources/associatCont_S2Week1_2.txt");
+    FIN.open("resources/seqCont_S2Week1_2.txt");
 
     std::list<std::string> words;
     while (!FIN.eof()){

@@ -57,10 +57,17 @@ void containersWeek11_3(std::ifstream& FIN);
 void abstractVirtualWeek12_1(std::ifstream& FIN);
 void abstractVirtualWeek12_2(std::ifstream& FIN);
 
+//practice week 1
+void templatesPractW1_2(std::ifstream& FIN);
+void templatesPractW1_3(std::ifstream& FIN);
+
 //practice week 2
 void stlPractW2_1(std::ifstream& FIN);
 void stlPractW2_2(std::ifstream& FIN);
 void stlPractW2_3(std::ifstream& FIN);
+
+//practice week 3
+void floweredbedPractW3_1(std::ifstream& FIN);
 
 //S2 week 1
 void seqCont_S2Week1_1(std::ifstream& FIN);
@@ -71,3 +78,4 @@ void seqCont_S2Week1_3(std::ifstream& FIN);
 void associatCont_S2Week1_1(std::ifstream& FIN);
 void associatCont_S2Week1_2(std::ifstream& FIN);
 void associatCont_S2Week1_3(std::ifstream& FIN);
+

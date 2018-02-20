@@ -1,0 +1,12 @@
+Anna 1 4 
+8 7 9 8
+Fyodor 1 4
+6 8 7 6
+Nicolay 5 5
+3 5 7 6 5
+Ivan 5 5
+10 9 9 8 9
+Pyotr 1 4
+2 5 9 7
+Evdenia 1 4
+9 10 10 7
