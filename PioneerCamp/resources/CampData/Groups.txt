@@ -1,0 +1,4 @@
+GO 12 one
+LEPKA 3 two three
+PAINT 7 two
+SLEEPING 1 one three

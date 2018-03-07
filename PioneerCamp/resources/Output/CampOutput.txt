@@ -1,0 +1,22 @@
+TASK 4.1 sortChildrenByAge:
+three, 5
+two, 10
+one, 14
+
+TASK 4.2 findAverageAge:
+9.66667
+
+TASK 5 findGroupsForEachChild:
+three, 5: LEPKA | SLEEPING | 
+two, 10: LEPKA | PAINT | 
+one, 14: GO | SLEEPING | 
+
+TASK 6 findGroupWithMaxMembers:
+LEPKA
+
+TASK 7 updateCampGroupsData:
+GO: one, 14|
+LEPKA: two, 10|three, 5|
+PAINT: two, 10|
+SLEEPING: one, 14|three, 5|
+
